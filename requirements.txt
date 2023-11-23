@@ -2,3 +2,5 @@ pyppeteer
 bs4
 uvicorn
 fastapi
+requests
+bs4
