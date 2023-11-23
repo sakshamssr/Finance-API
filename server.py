@@ -13,7 +13,7 @@ async def run_scraping(inpu: str):
 
 @app.get("/search2/{inpu}")
 async def run_scraping(inpu: str):
-    result = await binsider(inpu)
+    result = binsider(inpu)
     return result
 
 @app.get("/search/")
