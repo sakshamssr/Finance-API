@@ -1,23 +1,42 @@
 import requests
 from bs4 import BeautifulSoup
 
-store={}
+def businessi(term):
+    store={}
 
-URL="https://markets.businessinsider.com/bonds/apple_incad-notes_201626-bond-2026-au3cb0237881?miRedirects=1"
-headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
+    URL="https://markets.businessinsider.com/bonds/"+term
+    headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
 
-page = requests.get(URL,headers=headers)
-soup = BeautifulSoup(page.content, "html.parser")
+    page = requests.get(URL,headers=headers)
+    soup = BeautifulSoup(page.content, "html.parser")
 
-print(page)
-#print(soup)
+    print(page)
+    #print(soup)
 
-table=soup.find_all(class_="table__tr")
-print(table)
+    table=soup.find_all(class_="table__tr")
+    #print(table)
 
-for i in range(0,len(table)):
-    base=str(table[i]).replace("\t","").replace("\n",'')
-    print(base)
+    tabledata=[]
 
-print(store)
+    for i in table:
+        if('class="table__td">' in str(i)):
+            tabledata.append(str(i))
 
+    #print("tabledata",tabledata)
+
+    for i in range(0,len(tabledata)-5):
+        base=str(tabledata[i]).replace("\t","").replace("\n",'')
+        name=base.split('class="table__td">')[1].split('</td>')[0]
+        data=base.split('class="table__td">')[1].split('</td>')[1].split('<td class="table__td text-right">')[1]
+
+        store[name]=data
+
+    soup = BeautifulSoup(store["Issuer"],features="lxml")
+    for a in soup.findAll('a'):
+        a.replaceWithChildren()
+
+    Issue=str(soup).replace("<html>","").replace("</html>","").replace("<body>","").replace("</body>","")
+
+    store["Issuer"]=Issue
+
+    return store

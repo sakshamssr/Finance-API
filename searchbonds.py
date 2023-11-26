@@ -69,3 +69,6 @@ async def intercept_request(req):
         await req.continue_()
 
 
+
+
+asyncio.run(scrape_website("Apple"))

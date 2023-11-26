@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
-
 from searchbonds import scrape_website
 from searchbonds2 import binsider
+from businessinsider import businessi
 
 app = FastAPI()
 
@@ -14,6 +14,11 @@ async def run_scraping(inpu: str):
 @app.get("/search2/{inpu}")
 async def run_scraping(inpu: str):
     result = binsider(inpu)
+    return result
+
+@app.get("/search2/details/{inpu}")
+async def run_scraping(inpu: str):
+    result = businessi(inpu)
     return result
 
 @app.get("/search/")
