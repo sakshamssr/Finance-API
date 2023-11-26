@@ -31,7 +31,7 @@ def businessi(term):
 
         store[name]=data
 
-    soup = BeautifulSoup(store["Issuer"],features="lxml")
+    soup = BeautifulSoup(store["Issuer"])
     for a in soup.findAll('a'):
         a.replaceWithChildren()
 
