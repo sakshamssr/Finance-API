@@ -71,4 +71,4 @@ async def intercept_request(req):
 
 
 
-asyncio.run(scrape_website("Apple"))
+#asyncio.run(scrape_website("Apple"))
