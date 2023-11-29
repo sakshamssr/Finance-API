@@ -1,8 +1,10 @@
 import asyncio
 from pyppeteer import launch
-
+import os
 from bs4 import BeautifulSoup
 from mdate import convertdate,convertepoch,today,tillmaturity,daystillmaturity
+
+os.environ['PYPPETEER_CHROMIUM_PATH'] = '/usr/bin/google-chrome-stable'
 
 store={}
 
