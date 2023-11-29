@@ -7,7 +7,7 @@ from mdate import convertdate,convertepoch,today,tillmaturity,daystillmaturity
 store={}
 
 async def scrape_website(term):
-    path=".\chrome-win\chrome.exe"
+    path="\chrome-win\chrome.exe"
     browser = await launch(headless=True,executablePath=path,args=['--no-sandbox', '--disable-gpu'])
     page = await browser.newPage()
 
@@ -73,4 +73,4 @@ async def intercept_request(req):
 
 
 
-#asyncio.run(scrape_website("Apple"))
+asyncio.run(scrape_website("Apple"))
