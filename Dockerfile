@@ -17,7 +17,13 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 # Install Python dependencies
 RUN pip install --upgrade pip
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir pyppeteer
+RUN pip install --no-cache-dir pandas
+RUN pip install --no-cache-dir beautifulsoup4
+RUN pip install --no-cache-dir uvicorn
+RUN pip install --no-cache-dir fastapi
+RUN pip install --no-cache-dir requests
+RUN pip install --no-cache-dir bs4
 
 # Run your Python script when the container launches
 CMD ["python", "server.py"]
