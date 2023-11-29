@@ -1,16 +1,14 @@
 import asyncio
 from pyppeteer import launch
-import os
+
 from bs4 import BeautifulSoup
 from mdate import convertdate,convertepoch,today,tillmaturity,daystillmaturity
-
-os.environ['PYPPETEER_CHROMIUM_PATH'] = '/usr/bin/google-chrome-stable'
 
 store={}
 
 async def scrape_website(term):
     path=".\chrome-win\chrome.exe"
-    browser = await launch(headless=True,args=['--no-sandbox', '--disable-gpu'])
+    browser = await launch(headless=True,executablePath=path,args=['--no-sandbox', '--disable-gpu'])
     page = await browser.newPage()
 
     try:
