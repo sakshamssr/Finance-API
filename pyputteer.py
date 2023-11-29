@@ -8,7 +8,7 @@ store={}
 
 async def scrape_website(term):
     path=".\chrome-win\chrome.exe"
-    browser = await launch(headless=True,executablePath=/usr/bin/google-chrome-stable)
+    browser = await launch(headless=True,args=['--no-sandbox', '--disable-gpu'])
     page = await browser.newPage()
 
     try:
