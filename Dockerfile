@@ -25,5 +25,11 @@ RUN pip install --no-cache-dir fastapi
 RUN pip install --no-cache-dir requests
 RUN pip install --no-cache-dir bs4
 
+# Set the working directory
+WORKDIR /app
+
+# Copy all files from the local directory to the container
+COPY . /app/
+
 # Run your Python script when the container launches
 CMD ["python", "server.py"]
