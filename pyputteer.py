@@ -1,17 +1,25 @@
-import requests
-from datetime import datetime
+import asyncio
+from pyppeteer import launch
+
 from bs4 import BeautifulSoup
 from mdate import convertdate,convertepoch,today,tillmaturity,daystillmaturity
 
 store={}
 
-def scrape_website(term):
+async def scrape_website(term):
+    path=".\chrome-win\chrome.exe"
+    browser = await launch(headless=True,executablePath=/usr/bin/google-chrome-stable)
+    page = await browser.newPage()
+
     try:
 
-        url="https://bondsterminal.onrender.com/scrape?term="+str(term)
-        page=requests.get(url)
-
-        content=page.content
+        url="https://www.bondsupermart.com/bsm/general-search/"+str(term)
+        
+        await page.setViewport({'width': 1920, 'height': 1080})
+        await page.setExtraHTTPHeaders({'Accept-Encoding': 'gzip, deflate, br'})
+        await page.goto(url, {'waitUntil': 'networkidle0'})
+        
+        content = await page.evaluate("document.querySelector('.ant-table').outerHTML")
         soup = BeautifulSoup(content, "html.parser")
 
         #print(soup)
@@ -54,6 +62,15 @@ def scrape_website(term):
 
     finally:
         #time.sleep(7)
-        print("Done!")
+        await browser.close()
 
-#scrape_website("Apple")
+async def intercept_request(req):
+    if req.resourceType in ['image', 'stylesheet']:
+        await req.abort()
+    else:
+        await req.continue_()
+
+
+
+
+#asyncio.run(scrape_website("Apple"))

@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from searchbonds import scrape_website
+from pyputteer import scrape_website
 from searchbonds2 import binsider
 from businessinsider import businessi
 

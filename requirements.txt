@@ -1,4 +1,5 @@
 pyppeteer
+pandas
 bs4
 uvicorn
 fastapi
