@@ -1,8 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8-slim
-
-# Set the working directory in the container
-WORKDIR /app
+FROM python:3.11-slim
 
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y \
@@ -20,9 +17,6 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 # Install Python dependencies
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the local script to the container at /app
-COPY your_script.py /app/
 
 # Run your Python script when the container launches
 CMD ["python", "server.py"]
