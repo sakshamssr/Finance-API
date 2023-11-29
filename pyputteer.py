@@ -7,7 +7,7 @@ from mdate import convertdate,convertepoch,today,tillmaturity,daystillmaturity
 store={}
 
 async def scrape_website(term):
-    path="./chrome-win"
+    path="/usr/bin/google-chrome-stable"
     browser = await launch(headless=True,executablePath=path,args=['--no-sandbox', '--disable-gpu'])
     page = await browser.newPage()
 
