@@ -31,5 +31,8 @@ WORKDIR /app
 # Copy all files from the local directory to the container
 COPY . /app/
 
+# Set the path to the Chromium executable
+ENV PYPPETEER_CHROMIUM_PATH=/usr/bin/google-chrome-stable
+
 # Run your Python script when the container launches
 CMD ["python", "server.py"]
