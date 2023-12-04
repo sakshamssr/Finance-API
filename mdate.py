@@ -11,7 +11,15 @@ def convertdate(inputdate):
     fdate=fdate.replace(" ","/")
     return fdate
 
-convertdate("10 Jan 2024")
+#convertdate("10 Jan 2024")
+
+def getdate(epoch):
+    stringepoch=str(epoch)
+    if len(stringepoch)>10:
+        for i in range(len(stringepoch)-10):
+            epoch=epoch//10
+
+    return datetime.fromtimestamp(epoch)
 
 def convertepoch(string):
     epoch=datetime.strptime(str(string),"%d/%m/%Y")

@@ -3,10 +3,9 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from mdate import convertdate,convertepoch,today,tillmaturity,daystillmaturity
 
-store={}
-
 def scrape_website(term):
     try:
+        store={}
 
         url="https://bondsterminal.onrender.com/scrape?term="+str(term)
         page=requests.get(url)

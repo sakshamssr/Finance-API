@@ -27,5 +27,5 @@ def binsider(term):
 
     return store
 
-#print(store)
+#print(binsider("Apple"))
 

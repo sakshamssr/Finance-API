@@ -29,5 +29,5 @@ async def root():
     return {"Message":"Hello From SSR!"},{"Correct Way":r"https://bonds-terminal.vercel.app/search2/{query}"}
 
 if __name__ == "__main__":
-    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("server:app", host="0.0.0.0", port=4000, reload=True)
     #asyncio.run(scrape_website('Apple'))
