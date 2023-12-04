@@ -29,29 +29,32 @@ async def scrape_website(term):
         #print(name)
 
         #print(sector)
-
+        
         for i in range(0,len(name)):
-            isin=str(name[i]).split('href="/bsm/bond-factsheet/')[1].split('"><strong')[0]
-            #sectorname=sector[i]
-            #print(sectorname.text)
-            #print(isin)
-            bondname=str(name[i]).split('="">')[1].split('</strong>')[0]
-            n=str(sector[0].text)
-            cr=str(sector[1].text)
-            md=str(sector[2].text)
-            ap=str(sector[3].text)
-            ytm=str(sector[4].text)
-
-            epoch=convertepoch(convertdate(md))
-            tillm=tillmaturity(epoch,today())
-
             try:
-                for j in range(0,5):
-                    sector.pop(0)
+                isin=str(name[i]).split('href="/bsm/bond-factsheet/')[1].split('"><strong')[0]
+                #sectorname=sector[i]
+                #print(sectorname.text)
+                #print(isin)
+                bondname=str(name[i]).split('="">')[1].split('</strong>')[0]
+                n=str(sector[0].text)
+                cr=str(sector[1].text)
+                md=str(sector[2].text)
+                ap=str(sector[3].text)
+                ytm=str(sector[4].text)
+
+                epoch=convertepoch(convertdate(md))
+                tillm=tillmaturity(epoch,today())
+
+                try:
+                    for j in range(0,5):
+                        sector.pop(0)
+                except:
+                    print("List Length:",len(sector))
+                
+                store[isin]={"bondname":bondname.replace('<span class=\"text-info\">','').replace('</span>',''),"sector":n,"couponrate":cr,"maturitydate":md,"maturitydateepoch":epoch,"tillmaturityepoch":tillm,"daystillmaturity":daystillmaturity(tillm),"askprice":ap,"ytm":ytm}
             except:
-                print("List Length:",len(sector))
-            
-            store[isin]={"bondname":bondname,"sector":n,"couponrate":cr,"maturitydate":md,"maturitydateepoch":epoch,"tillmaturityepoch":tillm,"daystillmaturity":daystillmaturity(tillm),"askprice":ap,"ytm":ytm}
+                break
 
         for i in range(0,len(sector)):
             sectorname=sector[i]
