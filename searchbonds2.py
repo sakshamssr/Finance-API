@@ -22,7 +22,7 @@ def binsider(term):
         name=base[1].split("</a>")[0]
         company=base[2].split("</td>")[0]
         isin=base[3].split("</td>")[0]
-        maturitydate=base.split("Base-")[1].split("-")[0]
+        maturitydate=base[0].split("Bond-")[1].split("-")[0]
 
         store[base[0]]={"name":name,"maturitydate":maturitydate,"issuer":company,"isin":isin}
 
