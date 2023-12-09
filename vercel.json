@@ -4,10 +4,7 @@
       { "src": "server.py", "use": "@vercel/python" },
       {
         "src": "build_files.sh",
-        "use": "@vercel/static-build",
-        "config": {
-            "distDir": "static"
-        }
+        "use": "@vercel/static-build"
     }
     ],
     "routes": [
