@@ -17,14 +17,33 @@ def binsider(term):
     #print(table)
 
     for i in range(1,len(table)):
-        base=str(table[i]).replace("\t","").replace("\n",'').split('<a href="/bonds/')[1].split('">')
+        try:
+            base=str(table[i]).replace("\t","").replace("\n",'').split('<a href="/bonds/')[1].split('">')
 
-        name=base[1].split("</a>")[0]
-        company=base[2].split("</td>")[0]
-        isin=base[3].split("</td>")[0]
-        maturitydate=base[0].split("Bond-")[1].split("-")[0]
+            name=base[1].split("</a>")[0]
+            company=base[2].split("</td>")[0]
+            isin=base[3].split("</td>")[0]
+            maturitydate=base[0].split("Bond-")[1].split("-")[0]
+            try:
+                issuedate=base[0].split("notes_")[1]
 
-        store[base[0]]={"name":name,"maturitydate":maturitydate,"issuer":company,"isin":isin}
+                print(issuedate)
+            except:
+                issuedate=""
+            
+            if(issuedate==""):
+                try:
+                    issuedate=name.split("Notes ")[1].split("(")[0]
+                except:
+                    issuedate=""
+            
+            if (issuedate==""):
+                store[base[0]]={"name":name,"issuedate":issuedate,"maturitydate":maturitydate,"issuer":company,"isin":isin}
+            else:
+                store[base[0]]={"name":name,"issuedate":issuedate[:4],"maturitydate":maturitydate,"issuer":company,"isin":isin}
+        except:
+            print("That's Enough")
+            continue
 
     return store
 

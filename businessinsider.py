@@ -31,12 +31,11 @@ def businessi(term):
 
         store[name]=data
 
-    soup = BeautifulSoup(store["Issuer"])
-    for a in soup.findAll('a'):
-        a.replaceWithChildren()
+    #print(store["Issuer"])
 
-    Issue=str(soup).replace("<html>","").replace("</html>","").replace("<body>","").replace("</body>","")
+    Issue=str(store["Issuer"]).split('">')[1].split("</a>")[0]
 
     store["Issuer"]=Issue
 
+    #print(store)
     return store
