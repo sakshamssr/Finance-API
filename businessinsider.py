@@ -10,14 +10,14 @@ def businessi(term):
     page = requests.get(URL,headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
 
-    print(page)
+    #print(page)
     #print(soup)
 
     table=soup.find_all(class_="table__tr")
     #print(table)
 
     scripts=soup.find_all("script")
-    print(scripts)
+    #print(scripts)
 
     script_tags=[]
 
@@ -27,7 +27,7 @@ def businessi(term):
     graphdata=str(script_tags[25]).split("detailChartViewmodel")[1].split(";")[0].replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True")
 
     graph=eval(graphdata)
-    print()
+    #print()
     
     tabledata=[]
 
@@ -57,3 +57,5 @@ def businessi(term):
 
     #print(store)
     return store
+
+#print(businessi("apple_incad-notes_201626-Bond-2026-au3cb0237881"))
