@@ -56,7 +56,7 @@ def businessi(term):
 
     #print(len(st))
 
-    store["graphdata"]=st[25]
+    store["graphdata"]=st[25].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace(";","").replace("\n","").replace("\t","").replace("\","").replace("/","")
 
     #print(graph)
 
