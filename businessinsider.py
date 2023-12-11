@@ -17,9 +17,9 @@ def businessi(term):
     #print(table)
 
     scripts=soup.find_all("script")
-    print(scripts[25])
+    #print(scripts[25])
 
-    st=str(scripts[25])
+    st=str(scripts[25]).replace("<script>","").replace("</script>","")
     print(st)
     
     graphdata=st.split("detailChartViewmodel")[1].split(";")[0].replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True")
