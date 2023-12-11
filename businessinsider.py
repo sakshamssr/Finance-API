@@ -23,6 +23,8 @@ def businessi(term):
 
     for i in scripts:
         script_tags.append(i)
+
+    print(len(script_tags))
     
     graphdata=str(script_tags[25]).split("detailChartViewmodel")[1].split(";")[0].replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True")
 
