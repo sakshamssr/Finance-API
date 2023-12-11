@@ -56,9 +56,10 @@ def businessi(term):
 
     #print(len(st))
 
-    store["graphdata"]=st[25].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace("\n","").replace("\t","").replace('/','')
+    store["graphdata"]=st[26].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace("\n","").replace("\t","").replace('/','')
 
     #print(graph)
+    #print(st[25])
 
     #print(store)
     return store
