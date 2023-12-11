@@ -24,13 +24,13 @@ def businessi(term):
     for i in range(0,len(scripts)):
         st.append(str(scripts[i]))
 
-    st=st[25].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace(";","")
+    #st=st[25].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace(";","")
     #print(st)
     
-    graphdata=st.split("detailChartViewmodel")[1]
+    #graphdata=st.split("detailChartViewmodel")[1]
 
-    graph=eval(graphdata)
-    print("Graph:",graph)
+    #graph=eval(graphdata)
+    #print("Graph:",graph)
     
     tabledata=[]
 
@@ -52,9 +52,11 @@ def businessi(term):
     Issue=str(store["Issuer"]).split('">')[1].split("</a>")[0]
 
     store["Issuer"]=Issue
-    store["graph"]=graph["TKData"]
+    #store["graph"]=graph["TKData"]
 
-    store["PreviousClose"]=graph["PreviousClose"]
+    #print(len(st))
+
+    store["graphdata"]=st[25]
 
     #print(graph)
 
