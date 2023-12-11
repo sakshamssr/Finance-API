@@ -16,6 +16,19 @@ def businessi(term):
     table=soup.find_all(class_="table__tr")
     #print(table)
 
+    scripts=soup.find_all("script")
+    print(scripts)
+
+    script_tags=[]
+
+    for i in scripts:
+        script_tags.append(i)
+    
+    graphdata=str(script_tags[25]).split("detailChartViewmodel")[1].split(";")[0].replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True")
+
+    graph=eval(graphdata)
+    print()
+    
     tabledata=[]
 
     for i in table:
@@ -36,6 +49,11 @@ def businessi(term):
     Issue=str(store["Issuer"]).split('">')[1].split("</a>")[0]
 
     store["Issuer"]=Issue
+    store["graph"]=graph["TKData"]
+
+    store["PreviousClose"]=graph["PreviousClose"]
+
+    #print(graph)
 
     #print(store)
     return store
