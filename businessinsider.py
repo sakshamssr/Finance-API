@@ -64,4 +64,15 @@ def businessi(term):
     #print(store)
     return store
 
+def topchart():
+    store={}
+
+    URL="https://markets.businessinsider.com/ajax/finanzen/api/commodities?urls=gold-price,oil-price"
+    headers={"User-Agent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"}
+
+    page = requests.get(URL,headers=headers)
+    data = page.json()
+
+    return data
+
 #print(businessi("apple_incad-notes_201626-Bond-2026-au3cb0237881"))
