@@ -2,13 +2,18 @@ import uvicorn
 from fastapi import FastAPI
 from pyputteer import scrape_website
 from searchbonds2 import binsider
-from businessinsider import businessi,topchart
+from businessinsider import businessi,topchart,topbonds
 
 app = FastAPI()
 
 @app.get("/top")
 async def run_scraping():
     result = topchart()
+    return result
+
+@app.get("/topbonds")
+async def run_scraping():
+    result = topbonds()
     return result
 
 @app.get("/search/{inpu}")
