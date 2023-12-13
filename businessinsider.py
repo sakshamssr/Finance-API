@@ -14,6 +14,9 @@ def businessi(term):
     scripts=soup.find_all("script")
 
     st=[]
+    rating=soup.find(class_="moodys-rating__rating")
+
+    rating=rating.text
 
     for i in range(0,len(scripts)):
         st.append(str(scripts[i]))
@@ -33,7 +36,17 @@ def businessi(term):
 
     Issue=str(store["Issuer"]).split('">')[1].split("</a>")[0]
     store["Issuer"]=Issue
-
+    
+    try:
+        store["rating"]=100-int(rating)
+        if (int(rating)<33):
+            store["color"]="green"
+        elif(int(rating)>33 and int(rating)<66):
+            store["color"]="orange"
+        else:
+            store["color"]="red"
+    except:
+        store["rating"]="-"
     store["graphdata"]=st[26].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace("\n","").replace("\t","").replace('/','')
 
     return store
