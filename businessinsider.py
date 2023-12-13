@@ -92,7 +92,7 @@ def topbonds():
         for k in range(1,len(permod)):
             d.append(permod[k].split("</td>")[0])
 
-        di={"name":name,"isin":isin,"yield":d[0],"moodys":d[1],"date":d[2],"link":link,}
+        di={"name":name,"isin":isin,"yield":d[0],"moodys":d[1],"date":d[2],"link":link,"namelink":name.replace(" ","%20").replace(".","")}
 
         store.append(di)
 
