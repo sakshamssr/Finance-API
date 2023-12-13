@@ -16,7 +16,6 @@ def businessi(term):
     st=[]
     rating=soup.find(class_="moodys-rating__rating")
 
-    rating=rating.text
 
     for i in range(0,len(scripts)):
         st.append(str(scripts[i]))
@@ -38,6 +37,7 @@ def businessi(term):
     store["Issuer"]=Issue
     
     try:
+        rating=rating.text
         store["rating"]=100-int(rating)
         if (int(rating)<33):
             store["color"]="green"
