@@ -4,11 +4,18 @@ from pyputteer import scrape_website
 from searchbonds2 import binsider
 from businessinsider import businessi,topchart,topbonds
 
+from contact_send import pw
+
 app = FastAPI()
 
 @app.get("/top")
 async def run_scraping():
     result = topchart()
+    return result
+
+@app.get("/contact")
+async def run_scraping():
+    result= pw()
     return result
 
 @app.get("/topbonds")
