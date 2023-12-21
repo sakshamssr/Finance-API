@@ -24,8 +24,9 @@ def send_email(subject, body, to_email):
     server.quit()
 
 # Example usage
-subject = 'Test Email'
+'''subject = 'Test Email'
 body = 'This is a test email sent from Python.'
 to_email = 'sakshamraghav57@gmail.com'
 
 send_email(subject, body, to_email)
+'''

@@ -4,7 +4,7 @@ from pyputteer import scrape_website
 from searchbonds2 import binsider
 from businessinsider import businessi,topchart,topbonds
 
-from contact_send import pw
+from contact import send_email
 
 app = FastAPI()
 
@@ -13,10 +13,10 @@ async def run_scraping():
     result = topchart()
     return result
 
-@app.get("/contact")
-async def run_scraping():
-    result= pw()
-    return result
+@app.get("/contact/{subject}/{receiver}/{body}")
+async def run_scraping(subject:str,receiver:str,body:str):
+    result= send_email(subject,body,receiver)
+    return True
 
 @app.get("/topbonds")
 async def run_scraping():
