@@ -27,7 +27,7 @@ def binsider(term):
             try:
                 issuedate=base[0].split("notes_")[1]
 
-                print(issuedate)
+                #print(issuedate)
             except:
                 issuedate=""
             
