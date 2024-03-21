@@ -47,7 +47,7 @@ def businessi(term):
             store["color"]="red"
     except:
         store["rating"]="-"
-    store["graphdata"]=st[26].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace("\n","").replace("\t","").replace('/','')
+    store["graphdata"]=st[23].replace("<script>","").replace("</script>","").replace("=","").replace(" ","").replace("null","None").replace("false","False").replace("true","True").replace("\n","").replace("\t","").replace('/','')
 
     return store
 
