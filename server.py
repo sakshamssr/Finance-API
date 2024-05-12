@@ -43,7 +43,7 @@ async def root():
     return {"Message":"Pleaase specify a search query."}
 @app.get("/")
 async def root():
-    return {"Message":"Hello From SSR!"},{"Correct Way":r"https://bonds-terminal.vercel.app/search2/{query}"}
+    return {"Message":"Hello From SSR!"},{"Correct Way":r"https://finance-api-ssr.vercel.app/search2/{query}"}
 
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=4000, reload=True)
