@@ -1,6 +1,6 @@
-# Currency Terminal
+# Finance Api
 
-## Search
+## Search Bonds
 Details regarding the usage of the bonds search function.
 ```
 https://bonds-terminal.vercel.app/search2/{query}
