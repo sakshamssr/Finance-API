@@ -3,7 +3,7 @@
 ## Search Bonds
 Details regarding the usage of the bonds search function.
 ```
-https://bonds-terminal.vercel.app/search2/{query}
+https://finance-api-ssr.vercel.app/search2/{query}
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -13,7 +13,7 @@ https://bonds-terminal.vercel.app/search2/{query}
 import requests
 
 # Using the example query "apple".
-url = "https://bonds-terminal.vercel.app/search2/apple"
+url = "https://finance-api-ssr.vercel.app/search2/apple"
 response = requests.get(url)
 data = response.json()
 
@@ -38,13 +38,13 @@ Fetch specific bond information using 'id'.
 | `id` | `string` | **Required**.|
 
 ```
-https://bonds-terminal.vercel.app/search2/details/{id}
+https://finance-api-ssr.vercel.app/search2/details/{id}
 ```
 ```python
 import requests
 
 # Using the example query "apple_incad-notes_201626-Bond-2026-au3cb0237881".
-url = "https://bonds-terminal.vercel.app/search2/details/apple_incad-notes_201626-Bond-2026-au3cb0237881"
+url = "https://finance-api-ssr.vercel.app/search2/details/apple_incad-notes_201626-Bond-2026-au3cb0237881"
 response = requests.get(url)
 data = response.json()
 
