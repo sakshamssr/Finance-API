@@ -50,3 +50,32 @@ data = response.json()
 
 print(data)
 ```
+### Json Output Format:
+```json
+{
+    "ISIN": "AU3CB0237881",
+    "Name": "APPLE  2026",
+    "Country": "USA",
+    "Issuer": "Apple Inc.",
+    "Issue Volume": "325,000,000",
+    "Currency": "AUD",
+    "Issue Price": "99.92",
+    "Issue Date": "6/10/2016",
+    "Coupon": "3.600%",
+    "Denomination": "10000",
+    "Quotation Type": "",
+    "Payment Type": "regular interest",
+    "Special Coupon Type": "",
+    "Maturity Date": "6/10/2026",
+    "Coupon Payment Date": "6/10/2024",
+    "Payment Frequency": "",
+    "No. of Payments per Year": "2.0",
+    "Coupon Start Date": "12/10/2016",
+    "Final Coupon Date": "6/9/2026",
+    "Floater?": "No",
+    "rating": 99,
+    "color": "green",
+    "graphdata": "string"
+}
+```
+
