@@ -79,3 +79,33 @@ print(data)
 }
 ```
 
+## Fetch Top Bonds Details
+Fetch top bond information.
+
+```
+https://finance-api-ssr.vercel.app/topbonds
+```
+```python
+import requests
+
+url = "https://finance-api-ssr.vercel.app/topbonds"
+response = requests.get(url)
+data = response.json()
+
+print(data)
+```
+
+### Json Output Format:
+```json
+[
+    {
+        "name": "string",
+        "isin": "string",
+        "yield": "string",
+        "moodys": "string",
+        "date": "string",
+        "link": "string",
+        "namelink": "string"
+    },
+]
+```
